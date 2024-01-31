@@ -47,7 +47,6 @@ $(document).ready(function () {
                     display_text = display_text;
                 }
                 else {
-                    /*00以外の入力なら、数字をディスプレイに書く */
                     display_text += num_button[input_class];
                 }
             }
