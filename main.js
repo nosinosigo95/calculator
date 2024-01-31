@@ -38,14 +38,17 @@ $(document).ready(function () {
                     /*小数点以下に0以外の数字があるか */
                     if (is_zero && input_class !== "zero" && input_class !== "dzero")
                         is_zero = false;
+
                 } else if (display_text[num_start_i] === "0" && input_class !== "zero" && input_class !== "dzero") {
                     /*0120, 080などの先頭の0を取る*/
                     display_text = replace(display_text, num_start_i, num_button[input_class])
                 }
-                else if (input_class !== "dzero") {
+                else if (display_text[num_start_i] === "0" && (input_class === "zero" || input_class === "dzero")) {
+                    display_text = display_text;
+                }
+                else {
                     /*00以外の入力なら、数字をディスプレイに書く */
                     display_text += num_button[input_class];
-                    num_start_i = current;
                 }
             }
             else if (is_char_sign) {
